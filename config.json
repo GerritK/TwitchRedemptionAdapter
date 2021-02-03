@@ -1,0 +1,15 @@
+{
+  "twitch": {
+    "clientId": "gp762nuuoqcoxypju8c569th9wz7q5",
+    "accessToken": "ronlwe5iesbyrsaipcnywq5k10qmn5"
+  },
+  "mqtt": {
+    "host": "mqtt://home-pi.fritz.box/"
+  },
+  "rewardMap": [
+    {
+      "id": "fe25e5cd-0397-4fc4-9032-c56ee2ef472c",
+      "topic": "twitch/reward/bluelight"
+    }
+  ]
+}
