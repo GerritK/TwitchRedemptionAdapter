@@ -25,7 +25,7 @@ async function startup() {
         ['channel:read:redemptions'],
     );
     const apiClient = new ApiClient({
-        authProvider: authProvider,
+        authProvider,
     });
     const client = new PubSubClient();
     const userId = await client.registerUserListener(apiClient);
