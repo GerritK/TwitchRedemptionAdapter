@@ -8,8 +8,8 @@
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Gerrit Kaul <mail@gerritk.net> ",
+  "license": "MIT",
   "dependencies": {
     "mqtt": "^4.2.6",
     "twitch": "^4.4.7",
