@@ -5,13 +5,11 @@ import * as fs from 'fs';
 
 async function startup() {
     const config = await getConfig();
-    console.log(config);
 
     // MQTT
     const mqttClient = mqtt.connect(config.mqtt.host);
     mqttClient.on('connect', () => {
         console.log('MQTT CONNECT');
-        mqttClient.subscribe('#');
     });
     mqttClient.on('message', (topic, message) => {
         console.log(topic, message.toString());
@@ -32,7 +30,11 @@ async function startup() {
 
     const redemptionListener = await client.onRedemption(userId, (msg) => {
         const reward = config.rewardMap.find((r) => r.id === msg.rewardId);
-        mqttClient.publish(reward.topic, msg.redemptionDate.getTime().toString(10));
+        if (reward) {
+            mqttClient.publish(reward.topic, msg.redemptionDate.getTime().toString(10));
+        } else {
+            console.log('unmapped reward id', msg.rewardId);
+        }
     });
 }
 
